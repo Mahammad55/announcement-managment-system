@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  custom-postgres:
+    image: postgres
+    container_name: announcement-postgres-app
+    ports:
+      - '5430:5432'
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=announcement_db
+    volumes:
+      - db:/var/lib/postgresql/data
+
+  custom-redis:
+    image: redis
+    container_name: announcement-redis
+    ports:
+      - '6379:6379'
+    volumes:
+      - db:/data
+
+
+volumes:
+  db:

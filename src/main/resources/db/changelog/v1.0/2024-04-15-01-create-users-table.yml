@@ -1,0 +1,37 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2024-04-15-01-01
+      author: mahammad
+      changes:
+        - createTable:
+            tableName: users
+            remarks: Table to store information about users
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+              - column:
+                  name: name
+                  type: VARCHAR
+              - column:
+                  name: surname
+                  type: VARCHAR
+              - column:
+                  name: username
+                  type: VARCHAR
+                  constraints:
+                    unique: true
+              - column:
+                  name: age
+                  type: INT
+              - column:
+                  name: password
+                  type: VARCHAR
+              - column:
+                  name: status
+                  type: VARCHAR
+                  defaultValue: 'LOGGED_OUT'
